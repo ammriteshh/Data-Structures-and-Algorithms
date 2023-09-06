@@ -1,4 +1,4 @@
-//print the elements of an array which are greater than its neighoubrs and its Reverse
+//print the elements of an array which are greater than its neighoubrs and its print its Reverse
 
 #include <iostream>
 using namespace std;
