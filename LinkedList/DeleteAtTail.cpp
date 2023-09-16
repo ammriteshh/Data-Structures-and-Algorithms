@@ -79,6 +79,26 @@ void updateAtPosition(Node* &head, int k, int val){
     temp->val = val;
 }
 
+void deleteAtHead(Node* &head){
+
+    Node* temp = head; //node to be deleted
+    head = head->next;
+    free(temp);
+}
+
+void deleteAtTail(Node* &head){
+
+    Node* second_last = head;
+    while(second_last->next->next!=NULL){
+        second_last=second_last->next;
+    }
+
+    //now second_last points to second kast node
+    Node* temp = second_last->next; //node to be deleted
+    second_last->next=NULL;
+    free(temp);
+}
+
 int main() {
 
     Node* head = NULL; //new node head whose initially value is NULL
@@ -94,8 +114,12 @@ int main() {
     display(head);
     updateAtPosition(head, 2,5);
     display(head);
+    deleteAtHead(head);
+    display(head);
+    deleteAtTail(head);
+    display(head);
 
     return 0;
 }
 
-//Insertion at the beginning of the LL is of Time Complexity of "O(k)". it will bw O(n) in worst case
+//Insertion at the beginning of the LL is of Time Complexity of "O(n)"

@@ -79,6 +79,13 @@ void updateAtPosition(Node* &head, int k, int val){
     temp->val = val;
 }
 
+void deleteAtHead(Node* &head){
+
+    Node* temp = head; //node to be deleted
+    head = head->next;
+    free(temp);
+}
+
 int main() {
 
     Node* head = NULL; //new node head whose initially value is NULL
@@ -94,8 +101,10 @@ int main() {
     display(head);
     updateAtPosition(head, 2,5);
     display(head);
+    deleteAtHead(head);
+    display(head);
 
     return 0;
 }
 
-//Insertion at the beginning of the LL is of Time Complexity of "O(k)". it will bw O(n) in worst case
+//Insertion at the beginning of the LL is of Time Complexity of "O(1)"
