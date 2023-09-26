@@ -7,7 +7,7 @@ class Node{
     int val;
     Node* next;
 
-    Node(int data){
+    Node(int data){  //constructive for this class
         val = data;
         next = NULL;
     }
