@@ -1,4 +1,4 @@
-//delete every alternate element from the list starting from second element
+//delete all duplicates such that each element appears only once. Return the sorted linked list too.
 
 #include<iostream>
 using namespace std;
@@ -48,14 +48,17 @@ public:
     }
 };
 
-void deleteAlternateNodes(Node* &head){
+void deleteDuplicateNodes(Node* &head){
 
     Node* curr_node = head;
-    while(curr_node!=NULL && curr_node->next!=NULL){
-        Node* temp = curr_node->next;  //this is the node to be deleted
-        curr_node->next = curr_node->next->next;
-        free(temp);
-        curr_node = curr_node->next;
+    while(curr_node){
+        while(curr_node->val==curr_node->next->val){
+            //delete current->next
+            Node* temp = curr_node->next->next;
+            free(temp);
+            //this loop ends when current node and next node values are different
+            curr_node = curr_node->next;
+        }
     }
 }
 
@@ -68,6 +71,11 @@ int main() {
     ll.insertAtTail(4);
     ll.insertAtTail(5);
     ll.display();
-    deleteAlternateNodes(ll.head);
+    deleteDuplicateNodes(ll.head);
     ll.display();
+
+
+
+
+    return 0;
 }
