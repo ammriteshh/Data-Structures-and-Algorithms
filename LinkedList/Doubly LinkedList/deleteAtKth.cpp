@@ -77,6 +77,22 @@ void deleteAtStart(){
     free(temp);
 }
 
+void deleteAtEnd(){
+
+    if(head==NULL){
+        return;
+    }
+
+    Node* temp = tail;
+    tail = tail->prev;
+    if(tail==NULL){
+        head=NULL;
+            }else{
+                tail->next=NULL;
+            }
+            free(temp);
+}
+
 int main() {
 
     DoublyLinkedList dll;
@@ -85,8 +101,13 @@ int main() {
 
     dll.insertAtPosition(4,3);
     dll.display();
-    dll.deleteAtStart();
+    dll.deleteAtStart(6);
     dll.display();
     
+
+    dll.insertAtPosition(4, 3);
+    dll.display();
+    dll.deleteAtStart();
+    dll.display();
     return 0;
 }
